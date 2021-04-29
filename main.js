@@ -31,7 +31,8 @@ zip.addEventListener('input', (e) => {
   }
 });
 
-// Checks input for at least one upper and lower case letter, number, and one symbol
+// Checks input for at least one upper and lower case letter, number, and one symbol.
+// Checks that password matches input in confirm password.
 password.addEventListener('input', (e) => {
   if (password.validity.patternMismatch) {
     password.setCustomValidity(
@@ -44,7 +45,7 @@ password.addEventListener('input', (e) => {
   }
 });
 
-// Checks that both input passwords match.
+// Checks taht confirm password matches password.
 confirmPassword.addEventListener('input', (e) => {
   if (passwordMatch()) {
     confirmPassword.setCustomValidity('');
@@ -54,6 +55,7 @@ confirmPassword.addEventListener('input', (e) => {
   }
 });
 
+// Checks that both entered passwords match.
 function passwordMatch() {
   if (password.value === confirmPassword.value) {
     return true;
