@@ -30,3 +30,25 @@ zip.addEventListener('input', (e) => {
     zip.setCustomValidity('');
   }
 });
+
+// Checks input for at least one upper and lower case letter, number, and one symbol
+password.addEventListener('input', (e) => {
+  if (password.validity.patternMismatch) {
+    password.setCustomValidity(
+      'Please enter at least one letter(uppercase and lowercase), one number and one symbol'
+    );
+  } else {
+    password.setCustomValidity('');
+  }
+});
+
+// Checks that both input passwords match.
+confirmPassword.addEventListener('input', (e) => {
+  let firstPass = password.value;
+  if (firstPass === confirmPassword.value) {
+    console.log(firstPass.value, confirmPassword.value);
+    confirmPassword.setCustomValidity('');
+  } else {
+    confirmPassword.setCustomValidity('Passwords do not match.');
+  }
+});
