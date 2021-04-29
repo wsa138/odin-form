@@ -37,6 +37,8 @@ password.addEventListener('input', (e) => {
     password.setCustomValidity(
       'Please enter at least one letter(uppercase and lowercase), one number and one symbol'
     );
+  } else if (!passwordMatch()) {
+    password.setCustomValidity('Passwords do not match.');
   } else {
     password.setCustomValidity('');
   }
@@ -44,11 +46,18 @@ password.addEventListener('input', (e) => {
 
 // Checks that both input passwords match.
 confirmPassword.addEventListener('input', (e) => {
-  let firstPass = password.value;
-  if (firstPass === confirmPassword.value) {
-    console.log(firstPass.value, confirmPassword.value);
+  if (passwordMatch()) {
     confirmPassword.setCustomValidity('');
+    password.setCustomValidity('');
   } else {
     confirmPassword.setCustomValidity('Passwords do not match.');
   }
 });
+
+function passwordMatch() {
+  if (password.value === confirmPassword.value) {
+    return true;
+  } else {
+    return false;
+  }
+}
