@@ -9,15 +9,16 @@
 <body>
   <form>
     <label for="email">Email</label>
-    <input type="text" name="email" id="email"><br>
+    <input type="email" name="email" id="email" required><br>
     <label for="country">Country</label>
-    <input type="text" name="country" id="country"><br>
+    <input type="text" name="country" id="country" pattern="^[a-zA-Z]*$" required><br>
     <label for="zip">Zip Code</label>
-    <input type="text" name="zip" id="zip"><br>
+    <input type="text" name="zip" id="zip" minlength="5" maxlength="10" pattern="\d{5}(-\d{4})?" required><br>
     <label for="password">Password</label>
-    <input type="text" name="password" id="password"><br>
+    <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&]).{8,}"
+      required><br>
     <label for="confirm-password">Confirm Password</label>
-    <input type="text" name="confirm-password" id="confirm-password"><br>
+    <input type="password" name="confirm-password" id="confirm-password" required><br>
     <button>Submit</button>
   </form>
 
