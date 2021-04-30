@@ -4,8 +4,9 @@ const zip = document.getElementById('zip');
 const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm-password');
 const error = document.getElementById('error');
+const form = document.getElementById('form-container');
 
-// Checks that user inputs an email address and gives custom error if not.
+// Checks that user inputs a valid email address..
 email.addEventListener('input', (e) => {
   if (email.validity.valid) {
     error.textContent = '';
@@ -76,4 +77,12 @@ function errorMessage() {
   } else if (!passwordMatch()) {
     error.textContent = 'Passwords do not match.';
   }
+  console.log(error.textContent);
 }
+
+//Form wont submit if there is an error message.
+form.addEventListener('submit', (e) => {
+  if (error.textContent) {
+    e.preventDefault();
+  }
+});
